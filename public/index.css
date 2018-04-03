@@ -1,0 +1,42 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	width: 100%;
+	background-color: red;
+	color: white;
+	padding-left: 5%;
+	font-size: 2em;
+}
+
+#about {
+	display: none;
+	float: right;
+	padding: .5% 10% 0 0;
+	font-size: .66em;
+}
+
+#iaText {
+	background-color: rgb(50,50,50);
+	padding: 3% 0 5% 20%;
+}
+
+textarea {
+	height: 200px;
+	width: 80%;
+	font-size: 1.5em;
+}
+
+#generate {
+	display: inline;
+	padding: .2%;
+	margin-left: 60%;
+}
+
+#subjects {
+	position: relative;
+	bottom: 25px;
+}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>IA - Initialisms & Acronyms</title>
+	<link rel="stylesheet" href="index.css">
+</head>
+<body>
+	<div id="header">
+		IA - Initialisms & Acronyms
+		<span id="about">About</span>
+	</div>
+	<div id="iaText">
+		<form action="#" id="inputForm" onsubmit="getText()">
+			<textarea form="inputForm" id="iaTextArea">ENTER TEXT TO BE GENERATED BELOW WITH ITS INITIALISMS AND ACRONYMS READABLE UPON HOVER!</textarea>
+			<br>
+			<input id="generate" type="submit" value="GENERATE!">
+		</form>
+		<select id="subjects" onchange="getSubjectChoice()">
+			<option value="biology">Biology</option>
+			<option value="physics">Physics</option>
+			<option value="mathematics">Mathematics</option>
+			<option value="law">Law</option>
+		</select>
+		
+	</div>
+	<script src="index.js"></script>
+</body>
+</html>
