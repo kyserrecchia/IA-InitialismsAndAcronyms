@@ -33,10 +33,15 @@ textarea {
 #generate {
 	display: inline;
 	padding: .2%;
-	margin-left: 60%;
+	margin-left: 50%;
 }
 
 #subjects {
 	position: relative;
 	bottom: 25px;
+}
+
+.injectClass:hover {
+	color: blue;
+	cursor: pointer;
 }
