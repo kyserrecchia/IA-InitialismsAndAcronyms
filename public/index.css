@@ -41,7 +41,33 @@ textarea {
 	bottom: 25px;
 }
 
-.injectClass:hover {
-	color: blue;
-	cursor: pointer;
+#inject {
+	width: 80%;
+	margin: 0 10% 0 20%;
+	padding: 5% 0 0 0;
+}
+
+.injectClass {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    border-bottom: 1px dotted black;
+}
+
+.injectClass .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+}
+
+.injectClass:hover .tooltiptext {
+    visibility: visible;
 }
