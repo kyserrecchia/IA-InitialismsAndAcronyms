@@ -10,17 +10,19 @@
 		<span id="about"><a href="about.html">About</a></span>
 	</div>
 	<div id="iaText">
-		<form action="#" id="inputForm" onsubmit="getTextAndSubjectChoice(); return false;">
-			<textarea form="inputForm" id="iaTextArea">ENTER TEXT TO BE GENERATED BELOW WITH ITS INITIALISMS AND ACRONYMS READABLE UPON HOVER!</textarea>
+		<form action="#" id="inputForm" onsubmit="getChoiceSetChoice(); return false;">
+			<textarea form="inputForm" id="iaTextArea">ENTER TEXT FROM SOURCE TO BE GENERATED BELOW WITH ITS INITIALISMS AND ACRONYMS READABLE UPON HOVER! (and be sure to choose your subject)</textarea>
 			<br>
 			<input id="generate" type="submit" value="GENERATE!">
 		</form>
 		<select id="subjects">
 			<option value="choose">Choose Subject</option>
 			<option value="biology">Biology</option>
-<!-- 			<option value="physics">Physics</option>
-			<option value="mathematics">Mathematics</option>
-			<option value="law">Law</option> -->
+			<option value="physics" disabled>Physics</option>
+			<option value="mathematics" disabled>Mathematics</option>
+			<option value="computer_science" disabled>Computer Science</option>
+			<option value="business" disabled>Business</option>
+			<option value="law" disabled>Law</option>
 		</select>		
 	</div>
 	<div id="inject"></div>

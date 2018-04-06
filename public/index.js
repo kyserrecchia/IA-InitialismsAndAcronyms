@@ -1,29 +1,4 @@
 
-let injectedDiv = document.getElementById('inject');
-
-function getTextAndSubjectChoice(){	
-	let selectedSubject = document.getElementById('subjects').value;
-	if(selectedSubject==="choose"){
-		alert("Please choose a subject first");
-	} else{
-		let IAs = getIAs(selectedSubject);
-		let textInput = document.getElementById('iaTextArea').value;
-		console.log(IAs.length);
-		for(var i=0; i<IAs.length; i+=2){
-			let IA = IAs[i];
-			let fullIA = IAs[i+1];
-			if(i===0){
-				let replaced = replacer(textInput, IA, fullIA);
-				let injectedDiv = document.getElementById('inject');
-				injectedDiv.innerHTML = replaced;
-			} else{
-				let replaced = replacer(injectedDiv.innerHTML, IA, fullIA);
-				injectedDiv.innerHTML = replaced;
-			}
-		}
-	}			
-}
-
 function getIAs(subject){
 	if(subject==="biology"){
 		return [
@@ -108,11 +83,36 @@ function getIAs(subject){
 	}
 }
 
+//Replaces instances of initialisms and acronyms with themselves surrounded by spans for tooltip text to show
 function replacer(string, word, fullWord){
 	let spannedWord = "&nbsp<span class='injectClass'>" + word + "<span class='tooltiptext'>" + fullWord + "</span></span>";
 	let newString = string.replace(new RegExp(word, 'g'),spannedWord);
 	// console.log(newString);
 	return newString; 
+}
+
+//function called upon clicking "GENERATE!" button 
+function getChoiceSetChoice(){
+	let injectedDiv = document.getElementById('inject');
+	let selectedSubject = document.getElementById('subjects').value;
+	//make sure user has picked a choice before running
+	if(selectedSubject==="choose"){
+		alert("Please choose a subject first");
+	} else{
+		let IAs = getIAs(selectedSubject);
+		let textInput = document.getElementById('iaTextArea').value;
+
+		//get everything going in injected div so only this must be updated for each iteration over the IA subject array
+		injectedDiv.innerHTML = textInput;
+
+		//array made in pairs so incremented by two
+		for(var i=0; i<IAs.length; i+=2){
+			let IA = IAs[i];
+			let fullIA = IAs[i+1];
+			let replaced = replacer(injectedDiv.innerHTML, IA, fullIA);
+			injectedDiv.innerHTML = replaced;
+		}
+	}			
 }
 
 
