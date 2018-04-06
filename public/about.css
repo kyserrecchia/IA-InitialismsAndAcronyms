@@ -1,0 +1,65 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+#header {
+	width: 100%;
+	background-color: red;
+	color: white;
+	padding-left: 5%;
+	font-size: 2em;
+}
+
+#about {
+	/*display: none;*/
+	cursor: pointer;
+	float: right;
+	padding: .5% 10% 0 0;
+	font-size: .66em;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
+}
+
+#note a {
+	text-decoration: underline;
+}
+
+#aboutBox {
+	background-color: rgb(50,50,50);
+	padding: 4% 0 7% 0%;
+}
+
+.textHead {
+	text-align: center;
+	padding: 0 0 2% 0;
+}
+
+#aboutText {
+	color: white;
+	width: 70%;
+	margin: auto;
+	font-size: 1.3em;
+	line-height: 1.5em;
+}
+
+#aboutBody {
+	text-indent: 5%;
+}
+
+hr {
+	margin: 5% 0% 4% 0;
+}
+
+#note {
+	text-indent: 5%;
+	padding: 0% 0 0 0;
+	font-size: .9em;
+	margin: auto;
+	width: 92%;
+}
+

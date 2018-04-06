@@ -13,10 +13,16 @@
 }
 
 #about {
-	display: none;
+	/*display: none;*/
+	cursor: pointer;
 	float: right;
 	padding: .5% 10% 0 0;
 	font-size: .66em;
+}
+
+a {
+	color: inherit;
+	text-decoration: inherit;
 }
 
 #iaText {
