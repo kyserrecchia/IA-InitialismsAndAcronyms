@@ -84,9 +84,9 @@ function getIAs(subject){
 }
 
 //Replaces instances of initialisms and acronyms with themselves surrounded by spans for tooltip text to show
-function replacer(string, word, fullWord){
-	let spannedWord = "&nbsp<span class='injectClass'>" + word + "<span class='tooltiptext'>" + fullWord + "</span></span>";
-	let newString = string.replace(new RegExp(word, 'g'),spannedWord);
+function replacer(string, IA, fullWord){
+	let spannedIA = "&nbsp<span class='tooltip'>" + IA + "<span class='tooltiptext'>" + fullWord + "</span></span>";
+	let newString = string.replace(new RegExp(IA, 'g'),spannedIA);
 	return newString; 
 }
 
@@ -111,61 +111,41 @@ function getChoiceSetChoice(){
 			let replaced = replacer(injectedDiv.innerHTML, IA, fullIA);
 			injectedDiv.innerHTML = replaced;
 		}
-		setGenerateStyle();
+		strictHoverStyle();
 	}
 }
 
-function setGenerateStyle(){
-	let overTools = false;
-	let overToolTips = false;
-
+//function ensures when hovering over IAs, it is strict
+function strictHoverStyle(){
+	let overToolTipTexts = false;
+	let tooltipSet = document.getElementsByClassName('tooltip');
 	let tooltiptextSet = document.getElementsByClassName('tooltiptext');
+	let tooltips = Array.from(tooltipSet);
 	let tooltiptexts = Array.from(tooltiptextSet);
-	let tooltiptextLen = tooltiptexts.length;
 
-	for(let i = 0; i<tooltiptextLen; i++){
-		tooltiptexts[i].style.visibility = "hidden";
-		tooltiptexts[i].style.width = '120px';
-		tooltiptexts[i].style.backgroundColor = 'black';
-		tooltiptexts[i].style.color = '#fff';
-		tooltiptexts[i].style.textAlign = 'center';
-		tooltiptexts[i].style.paddingTop = '10px';
-		tooltiptexts[i].style.paddingBottom = '5px';
-		tooltiptexts[i].style.borderRadius = '6px';
-		tooltiptexts[i].style.position = "absolute";
-		// tooltiptexts[i].style.transform = '';
-		tooltiptexts[i].style.zIndex = '1';
-	}
-
-	let toolSet = document.getElementsByClassName('injectClass');
-	let tools = Array.from(toolSet);
-	let toolLen = tools.length;
-
-
-	for(let i = 0; i<toolLen; i++){
-
-		tools[i].addEventListener('mouseover', function(){
-			overTools = true;
-			if(overTools&&overToolTips){
+	for(let i = 0; i<tooltips.length; i++){
+		tooltips[i].addEventListener('mouseover', function(){
+			if(overToolTipTexts){
 				tooltiptexts[i].style.visibility = 'hidden';
-			} else if(overTools){
+				tooltiptexts[i].style.opacity = 'opacity .85s';
+				tooltiptexts[i].style.transition = 0;
+			} else{
 				tooltiptexts[i].style.visibility = 'visible';
+				tooltiptexts[i].style.opacity = 1;
 			}
 		});
 
-		tools[i].addEventListener('mouseout', function(){
+		tooltips[i].addEventListener('mouseout', function(){
 			tooltiptexts[i].style.visibility = "hidden";
-			overTools = false;
+			tooltiptexts[i].style.opacity = 0;
 		});
 
 		tooltiptexts[i].addEventListener('mouseover', function(){
-			overToolTips = true;
-			// tooltiptexts[i].style.visibility = "hidden";
+			overToolTipTexts = true;
 		});
 
 		tooltiptexts[i].addEventListener('mouseout', function(){
-			tooltiptexts[i].style.visibility = "hidden";
-			overToolTips = false;
+			overToolTipTexts = false;
 		});
 	}	
 }
